@@ -1,0 +1,13 @@
+{
+    "title": "Kubernetes Basics",
+    "icon": "fa-kubernetes",
+    "description": "Learn the basics related to the Kubernetes world with hands-on xperience.",
+    "courses": [
+      {
+        "course_id": "core-concepts",
+        "title": "Core Concepts",
+        "description": "In this module the basics about Kubernetes will be covered."
+      }
+    ]
+  }
+  
