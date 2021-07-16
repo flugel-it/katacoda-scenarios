@@ -7,13 +7,13 @@ Welcome to the Core Concepts module!
 This module takes you through the basics of Kubernetes. The architecture of a cluster incluiding Master (AKA control plane) and Worker nodes (AKA node):
 In this module you will learn what is:
 
-- Architecture of the Master node
+## Architecture of the Master node
   - **etcd**, what is a key-value store
   - **kube-api** server
   - **kube-controller** manager
   - **kube-scheduler** service
 
-Architecture of the Worker node
+## Architecture of the Worker node
   - **kubelet**
   - **kubeproxy**
   - **pods**
