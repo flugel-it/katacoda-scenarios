@@ -1,4 +1,4 @@
-# First Kubernetes Application #
+# Kubernets Core Concepts #
 
 ![Kubernetes](./assets/kubernetes.png "Kubernetes")
 
