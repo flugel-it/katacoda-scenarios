@@ -14,9 +14,9 @@ In this module you will learn what is:
   - **kube-scheduler** service
 
 Architecture of the Worker node
-- **kubelet**
-- **kubeproxy**
-- **pods**
+  - **kubelet**
+  - **kubeproxy**
+  - **pods**
 
 You'll begin to understand the basics and get ready for hands on labs in the following modules, isnt it fun?
 
