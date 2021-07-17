@@ -1,6 +1,6 @@
 {
-  "title": "First App",
-  "description": "Run your first application on Kubernetes.",
+  "title": "Flugel IT - Kubernetes Basics",
+  "description": "Learn the basics of Kubernetes.",
   "difficulty":	"Beginner",
   "time":	"20 minutes",
   "details": {
