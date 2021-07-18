@@ -13,6 +13,12 @@ Here's the diagram of a Kubernetes cluster with all the components tied together
 
 ## Master Node
 
+The control plane's components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
+
+Control plane components can be run on any machine in the cluster. However, for simplicity, set up scripts typically start all control plane components on the same machine, and do not run user containers on this machine.
+
+<img align="center" src="./assets/master-node.png" width="200">
+
 Let's get information about the Master Node. 
 
 Execute the following command to get information about the Nodes in the cluster and their status.
