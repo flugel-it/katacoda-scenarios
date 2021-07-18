@@ -8,7 +8,7 @@ This module takes you through the basics of Kubernetes. The architecture of a cl
 In this module you will learn what is:
 
 ## Architecture of the Master node
-  - **etcd**, what is a key-value store
+  - **master node**, what the control plane is?
   - **kube-api** server
   - **kube-controller** manager
   - **kube-scheduler** service
