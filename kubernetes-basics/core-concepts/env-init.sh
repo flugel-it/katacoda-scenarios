@@ -33,7 +33,7 @@ while [ "$ready" -eq 0 ]; do
 
  # timeout ..
  let "i=i+1"
- if [ "i" -gt 10 ];
+ if [ "i" -gt 10 ]; then
    ready=1
  fi
 done
