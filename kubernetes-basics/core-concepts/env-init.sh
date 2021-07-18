@@ -21,8 +21,6 @@ source <(helm completion bash)
 # Enable metrics
 helm install metrics-server stable/metrics-server --namespace kube-system 
 
-{ clear && echo 'Kubernetes with Helm is ready.'; } 2> /dev/null
-
 # Wait for the worker node to be available
 i=1
 ready=0
@@ -37,3 +35,5 @@ while [ "$ready" -eq 0 ]; do
    ready=1
  fi
 done
+
+{ clear && echo 'Kubernetes is ready.'; } 2> /dev/null
