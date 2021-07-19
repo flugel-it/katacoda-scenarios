@@ -88,7 +88,7 @@ Try the following commands to interact with pods
 
 `kubectl get pods -A`{{execute}}
 
-`kubectl describe pod etcd-controlplane`{{execute}}
+`kubectl describe pod etcd-controlplane -n kube-system`{{execute}}
 
 ## Multiple containers per Pod
 
