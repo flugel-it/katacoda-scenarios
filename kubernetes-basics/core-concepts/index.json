@@ -21,8 +21,8 @@
         "code": "etcd.sh"
       },
       {
-        "title": "Kube-controller manager*",
-        "text": "step4-scale.md",
+        "title": "Worker Nodes",
+        "text": "step4-worker.md",
         "code": "clear.sh"
       },
       {
