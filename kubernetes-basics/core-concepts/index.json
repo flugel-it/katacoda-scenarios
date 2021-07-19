@@ -26,21 +26,13 @@
         "code": "clear.sh"
       },
       {
-        "title": "Kube-Scheduller",
-        "text": "step5-resilience.md",
+        "title": "Deployments",
+        "text": "step5-deployment.md",
         "code": "clear.sh"
       },
       {
-        "title": "Kubelet",
-        "text": "step6-rollout.md"
-      },
-      {
-        "title": "Kube Proxy",
-        "text": "step6-rollout.md"
-      },
-      {
-        "title": "Pods",
-        "text": "step6-rollout.md"
+        "title": "Scale",
+        "text": "step6-scale.md"
       }
     ],
     "intro": {
