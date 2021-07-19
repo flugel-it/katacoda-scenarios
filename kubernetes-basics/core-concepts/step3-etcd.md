@@ -5,7 +5,7 @@ Etcd is a consistent and highly-available key value store used as Kubernetes' ba
 If your Kubernetes cluster uses etcd as its backing store, make sure you have a back up plan for those data.
 
 Launch ETCD
- `etc`{{execute}}
+ `etcd`{{execute}}
 
 Set and get a key
 
