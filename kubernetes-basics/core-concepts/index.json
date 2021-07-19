@@ -11,14 +11,14 @@
         "code": "clear.sh"
       },
       {
-        "title": "ETCD",
-        "text": "step2-deployment.md",
+        "title": "General Commands",
+        "text": "step2-k8sgeneral.md",
         "code": "clear.sh"
       },
       {
-        "title": "Kube-API",
-        "text": "step3-service.md",
-        "code": "clear.sh"
+        "title": "ETCD",
+        "text": "step3-etcd.md",
+        "code": "etcd.sh"
       },
       {
         "title": "Kube-controller manager*",
