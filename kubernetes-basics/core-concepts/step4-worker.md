@@ -96,7 +96,7 @@ Pods are designed to support multiple cooperating processes (as containers) that
 
 For example, you might have a container that acts as a web server for files in a shared volume, and a separate "sidecar" container that updates those files from a remote source, as in the following diagram:
 
-<img align="center" src="./assets/pod.png" width="200">
+<img align="center" src="./assets/Pod.png" width="200">
 
 
 For further details about working with Pods visit the following [URL](https://kubernetes.io/docs/concepts/workloads/pods/)
