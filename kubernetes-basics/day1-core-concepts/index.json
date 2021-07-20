@@ -16,7 +16,7 @@
         "code": "clear.sh"
       },
       {
-        "title": "Worker Nodes",
+        "title": "API via Command Line",
         "text": "step3-kube-api.md",
         "code": "clear.sh"
       },
