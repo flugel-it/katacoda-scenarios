@@ -1,0 +1,50 @@
+{
+  "title": "Day 1 - Kubernetes Core Concepts",
+  "description": "Learn the basics of Kubernetes.",
+  "difficulty":	"Beginner",
+  "time":	"20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "Basic Kubernetes Architecture",
+        "text": "step1-k8s.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "General Commands",
+        "text": "step2-k8sgeneral.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "API via Command Line",
+        "text": "step3-kube-api.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Worker Nodes",
+        "text": "step4-worker.md",
+        "code": "clear.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "*.yaml", "target": "/root"},
+        {"file": "token.sh", "target": "/usr/local/bin", "chmod": "+x"}
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uieditorpath": "/root/example"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}

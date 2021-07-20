@@ -1,0 +1,35 @@
+{
+  "title": "Day 1 - Kubernetes Core Concepts - ETCD",
+  "description": "Learn about ETCD",
+  "difficulty":	"Beginner",
+  "time":	"20 minutes",
+  "details": {
+    "steps": [
+      {
+        "title": "ETCD",
+        "text": "step3-etcd.md",
+        "code": "etcd.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "*.yaml", "target": "/root"},
+        {"file": "token.sh", "target": "/usr/local/bin", "chmod": "+x"}
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uieditorpath": "/root/example"
+  },
+  "backend": {
+    "imageid": "ubuntu:1804"
+  }
+}
