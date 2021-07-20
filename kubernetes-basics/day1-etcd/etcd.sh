@@ -16,4 +16,4 @@ tar xzvf /tmp/etcd-${ETCD_VER}-linux-amd64.tar.gz -C $ETCD_BIN --strip-component
 
 export PATH=$PATH:$ETCD_BIN
 
-clear
+{ clear && echo 'ETCD is ready.'; } 2> /dev/null
