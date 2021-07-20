@@ -2,37 +2,38 @@
   "title": "Flugel IT - Kubernetes Basics",
   "description": "Learn the basics of Kubernetes.",
   "difficulty":	"Beginner",
-  "time":	"20 minutes",
+  "time":	"1 day",
   "details": {
     "steps": [
       {
-        "title": "Basic Kubernetes Architecture",
-        "text": "step1-k8s.md",
+        "title": "Kubectl",
+        "text": "step1-kubectl.md",
         "code": "clear.sh"
       },
       {
-        "title": "General Commands",
-        "text": "step2-k8sgeneral.md",
+        "title": "Pods",
+        "text": "step2-pods.md",
         "code": "clear.sh"
       },
       {
-        "title": "ETCD",
-        "text": "step3-etcd.md",
-        "code": "etcd.sh"
-      },
-      {
-        "title": "Worker Nodes",
-        "text": "step4-worker.md",
+        "title": "Replicasets",
+        "text": "step3-replicasets.md",
         "code": "clear.sh"
       },
       {
         "title": "Deployments",
-        "text": "step5-deployment.md",
+        "text": "step4-deployments.md",
         "code": "clear.sh"
       },
       {
-        "title": "Scale",
-        "text": "step6-scale.md"
+        "title": "Namespaces",
+        "text": "step5-namespaces.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Services",
+        "text": "step6-services.md",
+        "code": "clear.sh"
       }
     ],
     "intro": {
