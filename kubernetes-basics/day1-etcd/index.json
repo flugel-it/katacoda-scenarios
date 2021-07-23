@@ -9,6 +9,11 @@
         "title": "ETCD",
         "text": "step1-etcd.md",
         "code": "etcd.sh"
+      },
+      {
+        "title": "ETCD",
+        "text": "step2-etcd-configuration.md",
+        "code": "clear.sh"
       }
     ],
     "intro": {

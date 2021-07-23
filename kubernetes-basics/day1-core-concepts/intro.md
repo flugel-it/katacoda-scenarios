@@ -11,7 +11,7 @@ In this module you will learn what is:
   - **master node**, what the control plane is?
   - **k8s cluster**, a few commands to get information about the cluster
   - **kube-api** server
-  - **kube-controller** manager
+  - **kube-controller manager** 
   - **kube-scheduler** service
 
 ## Architecture of the Worker node

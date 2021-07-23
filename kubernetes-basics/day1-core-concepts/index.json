@@ -17,12 +17,22 @@
       },
       {
         "title": "API via Command Line",
-        "text": "step3-kube-api.md",
+        "text": "step2-kube-api.md",
         "code": "clear.sh"
       },
       {
+        "title": "Kube Controller Manager",
+        "text": "step3-controller-manager.md",
+        "code": "controller-scheduler.sh"
+      },
+      {
+        "title": "Kube Scheduler",
+        "text": "step4-kube-scheduler.md",
+        "code": "controller-scheduler.sh"
+      },
+      {
         "title": "Worker Nodes",
-        "text": "step4-worker.md",
+        "text": "step5-worker.md",
         "code": "clear.sh"
       }
     ],

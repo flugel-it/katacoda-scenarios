@@ -1,65 +1,39 @@
 <img align="right" src="./assets/k8s-logo.png" width="100">
 
-When you deploy Kubernetes, you get a cluster.
+As you might already noticed, the primary way to interact with Kubernetes from the command-line is a tool called KubeCtl.
 
-A Kubernetes cluster consists of a set of worker machines, called **nodes**, that run containerized applications. Every cluster has at least one worker node.
+_kubectl_ allows to manage the Cluster multiple aspects, regardless of where Kubernetes is running. In the beginning it may take some time to keep the purpose of these commands separate.
 
-The **worker node(s)** host the Pods that are the components of the application workload. The **control plane manages** the worker nodes and the Pods in the cluster. In production environments, the **control plane** usually runs across multiple computers and a cluster usually runs multiple nodes, providing fault-tolerance and high availability.
+Use a few kubectl commands to discover more about this Kubernetes instance.
 
-## Kubernetes Components ##
+Get information about the _kubectl_ tool including it's version and about the cluster which is currently connected.
 
-Here's the diagram of a Kubernetes cluster with all the components tied together.
-<img align="center" src="./assets/k8s-architecture.jpeg" width="200">
+`kubectl version`{{execute}}
 
-## Master Node
-
-The control plane's components make global decisions about the cluster (for example, scheduling), as well as detecting and responding to cluster events (for example, starting up a new pod when a deployment's replicas field is unsatisfied).
-
-Control plane components can be run on any machine in the cluster. However, for simplicity, set up scripts typically start all control plane components on the same machine, and do not run user containers on this machine.
-
-<img align="center" src="./assets/master-node.png" width="200">
-
-The components of a Master Node are the following:
-
-- **kube-apiserver** : Exposes the Kubernetes API
-- **etcd: Kubernetes**:  Cluster Database for all cluster data.
-- **kube-scheduler**: Watches for newly created Pods with no assigned node, and selects a node for them to run on.
-- **kube-controller-manager**: Execute controller processes.
-- **cloud-controller-manager**: Service that embeds cloud-specific control logic.
-
-Let's get information about the Master Node. 
-
-Execute the following command to get information about the Nodes in the cluster and their status.
+Get information about the nodes that are running in the cluster.
 
 `kubectl get nodes`{{execute}}
 
-### Expected output
-````
-NAME           STATUS   ROLES    AGE   VERSION
-controlplane   Ready    master   67s   v1.18.0
-node01         Ready    <none>   39s   v1.18.0
-````
+If you wish to get additional information about the nodes, you can run.
 
-Notice that there are two nodes running in this cluster, a Master Node (controlplane) and a Worker Node (node01).
-The Master Node manages the cluster while the worker node runs the applications.
+`kubectl get nodes -o wide`{{execute}}
 
-In cloud environments Nodes run on a Virtual Machine / Instance, that's why Kubernetes is not a Serverless technology.
+There are various ways to get details about this cluster.
 
-### Dive deep into the Master Node
+`kubectl get componentstatus`{{execute}}
 
-Let's run the following command to get information about the Master Node and the running components.
+`kubectl cluster-info`{{execute}}
 
-`kubectl describe node controlplane`{{execute}}
+The following are really important to understand the conext, meaning to which cluster am I connecting to, with which user? This is very usefull when you start interacting with multiple clusters.
 
-Notice that by running this command we get a lot of information about the current state of the cluster, including:
+`kubectl config view`{{execute}}
 
-- Labels and Annotations: A really important attribute that will allow to handle different features of the cluster (will be covered later)
-- Status of the cluster
-- Resource allocation and capacity
-- System info, including OS and version
-- Namespaces and pods running the key components of the cluster
-- Events
+`kubectl config get-contexts`{{execute}}
 
-By running this command you will be able to troubleshoot your cluster whenever you face issues.
+More details are revealed with the describe command.
 
-For additional details on the master node, please go to the following [URL]:(https://kubernetes.io/docs/concepts/overview/components/)
+`kubectl describe node node01`{{execute}}
+
+Events can be listed.
+
+`kubectl get events`{{execute}}
