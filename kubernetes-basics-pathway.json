@@ -9,11 +9,6 @@
         "description": "Learn about the Cluster Architecture, Master and Worker nodes."
       },
       {
-        "course_id": "day1-etcd",
-        "title": "[Day 1] - ETCD",
-        "description": "Learn about ETCD."
-      },
-      {
         "course_id": "day2-K8s-basics",
         "title": "[Day 2] - Kubernetes Basics",
         "description": "Kubectl, Pods, Replicasets, Deployments, Namespaces, Services."
