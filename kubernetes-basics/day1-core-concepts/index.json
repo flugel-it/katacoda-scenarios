@@ -39,6 +39,11 @@
         "title": "Worker Nodes",
         "text": "step5-worker.md",
         "code": "clear.sh"
+      },
+      {
+        "title": "Day 1 Quiz",
+        "text": "step6-quiz.md",
+        "code": "clear.sh"
       }
     ],
     "intro": {
