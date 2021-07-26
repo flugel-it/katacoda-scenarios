@@ -1,15 +1,22 @@
 # Conclusion #
 
-Once an application is in a container, it's fairly simple to ask Kubernetes to serve up the container in multiple Pods fronted with a load balancing Service. Thereafter, Kubernetes dutifully respects your declared request by ensuring the application remains running on the cluster.
-
-There are many other types of resources that can be added to Kubernetes besides just Pods, Services and Deployments, however these are the most common resources. Later, explore the Helm scenarios to see how whole _charts_ of more complex deployments can be installed.
+The cluster Architecture has a lot of components, each component has it's own function.
+It is really important to get to know them well, in your day to day you will deploy apps and services, create and maintain clusters.
 
 ## Lessons Learned ##
 
 With these steps you have learned:
 
-- &#x2714; how to **Deploy** an application,
-- &#x2714; how to **Scale** an application,
-- &#x2714; how to load balance an application with a **Service** for multiple **Pods** of an application,
-- &#x2714; how **Resilience** maintains the declared state even with failures,
-- &#x2714; how to **Roll out** new versions of an application.
+
+## Architecture of the Master node
+  - **master node**, what the control plane is?
+  - **k8s cluster**, a few commands to get information about the cluster
+  - **kube-api** server
+  - **kube-controller manager** 
+  - **kube-scheduler** service
+
+## Architecture of the Worker node
+  - **worker node**, what the worker node is?
+  - **kubelet**
+  - **kubeproxy**
+  - **pods**
