@@ -11,13 +11,18 @@
         "code": "clear.sh"
       },
       {
-        "title": "General Commands",
-        "text": "step2-k8sgeneral.md",
+        "title": "ETCD",
+        "text": "step2-1etcd.md",
+        "code": "etcd.sh"
+      },
+      {
+        "title": "ETCD",
+        "text": "step2-2etcd-configuration.md",
         "code": "clear.sh"
       },
       {
         "title": "API via Command Line",
-        "text": "step2-kube-api.md",
+        "text": "step2-3kube-api.md",
         "code": "clear.sh"
       },
       {
