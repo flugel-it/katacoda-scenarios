@@ -4,20 +4,14 @@ This service can be referenced by its label, and therefore access with the help 
 
 Expose the Pod by fronting it with a Service labeled _hello_.
 
-`kubectl expose deployment hello --type=NodePort`{{execute}}
+`kubectl expose deployment hello-node --type=NodePort --port=31001`{{execute}}
 
-`kubectl get service hello`{{execute}}
+`kubectl get service hello-node`{{execute}}
 
-The NodePort is assign a port value at some free port above 30000. For this Katacoda example we need it to be at a definitive value, here we choose 31001. Use the _patch_ command to change the _hello_ service NodePort from its random value to the chosen, fixed value.
+Let's get details on the Service exposed
 
-`kubectl patch service hello --type='json' --patch='[{"op": "replace", "path": "/spec/ports/0/nodePort", "value":31001}]'`{{execute}}
-
-The service NodePort is now adjusted.
-
-`kubectl get service hello`{{execute}}
-
-`kubectl describe service hello`{{execute}}
+`kubectl describe service hello-node`{{execute}}
 
 Because of Katacoda's virtualization you cannot address this service from your browser, but you can use Katacoda's domain as the URL to the same service. Notice the same port number placed in the subdomain of the URL.
 
-`curl -s https://[[HOST_SUBDOMAIN]]-31001-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
+`curl -s https://[[HOST_SUBDOMAIN]]-31002-[[KATACODA_HOST]].environments.katacoda.com/`{{execute}}
