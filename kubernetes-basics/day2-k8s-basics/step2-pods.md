@@ -1,38 +1,37 @@
+A Kubernetes Pod is a group of one or more Containers, tied together for the purposes of administration and networking. The Pod in this tutorial has only one Container. A Kubernetes Deployment checks on the health of your Pod and restarts the Pod's Container if it terminates. Deployments are the recommended way to manage the creation and scaling of Pods.
 
-As you might already noticed, the primary way to interact with Kubernetes from the command-line is a tool called KubeCtl.
+`kubectl create deployment hello-node --image=k8s.gcr.io/echoserver:1.4`{{execute}}
 
-_kubectl_ allows to manage the Cluster multiple aspects, regardless of where Kubernetes is running. In the beginning it may take some time to keep the purpose of these commands separate.
+> Let's view the Deployments:.
 
-Use a few kubectl commands to discover more about this Kubernetes instance.
+> `kubectl get deployments`{{execute}}
 
-Get information about the _kubectl_ tool including it's version and about the cluster which is currently connected.
+Expected Output:
+````
+NAME         READY   UP-TO-DATE   AVAILABLE   AGE
+hello-node   1/1     1            1           1m
+````
 
-`kubectl version`{{execute}}
+> Let's view the running pods.
 
-Get information about the nodes that are running in the cluster.
+> `kubectl get pods`{{execute}}
 
-`kubectl get nodes`{{execute}}
+Expected Output:
+````
+NAME                          READY     STATUS    RESTARTS   AGE
+hello-node-7f86df6cxf-qr1b2   1/1       Running   0          10m
+````
 
-If you wish to get additional information about the nodes, you can run.
+> Let's examine the deployment
 
-`kubectl get nodes -o wide`{{execute}}
+> `kubectl describe deployment hello-node`{{execute}}
 
-There are various ways to get details about this cluster.
+The same way, the pod can be examined, try it yourself, run:
+`kubectl get pods`{{execute}}
 
-`kubectl get componentstatus`{{execute}}
+Now copy the pod name and run `kubectl describe pod <pod-name>`
+Replace <pod-name> with the one received in the output.
 
-`kubectl cluster-info`{{execute}}
+> Run a command to view the cluster events
 
-The following are really important to understand the conext, meaning to which cluster am I connecting to, with which user? This is very usefull when you start interacting with multiple clusters.
-
-`kubectl config view`{{execute}}
-
-`kubectl config get-contexts`{{execute}}
-
-More details are revealed with the describe command.
-
-`kubectl describe node node01`{{execute}}
-
-Events can be listed.
-
-`kubectl get events`{{execute}}
+> `kubectl get events`{{execute}}

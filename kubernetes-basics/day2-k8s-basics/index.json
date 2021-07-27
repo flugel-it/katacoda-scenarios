@@ -16,8 +16,8 @@
         "code": "clear.sh"
       },
       {
-        "title": "Replicasets",
-        "text": "step3-replicasets.md",
+        "title": "Service",
+        "text": "step3-service.md",
         "code": "clear.sh"
       },
       {
