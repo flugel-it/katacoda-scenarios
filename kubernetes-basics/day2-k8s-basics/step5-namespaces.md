@@ -6,8 +6,10 @@ Let's get the current namespaces
 
 Expected output
 ````
-NAME      STATUS    AGE
-default   Active    13m
+default           Active   13m
+kube-node-lease   Active   13m
+kube-public       Active   13m
+kube-system       Active   13m
 ````
 
 
@@ -40,7 +42,18 @@ Take a look at the __namespace__ including it's labels
 
 Expected output:
 ````
-NAME          STATUS    AGE       LABELS
-default       Active    32m       <none>
-development   Active    29s       name=development
+default           Active   14m   <none>
+development       Active   2s    name=development
+kube-node-lease   Active   14m   <none>
+kube-public       Active   14m   <none>
+kube-system       Active   14m   <none>
+````
+
+Let's delete the development namespace, notice that this will delete all the resources in it
+
+`kubectl delete namespace development`{{execute}}
+
+Expected output:
+````
+namespace "development" deleted
 ````
