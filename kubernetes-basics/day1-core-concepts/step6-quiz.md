@@ -25,3 +25,31 @@ Before moving forwards, let's check some basic concepts with a quiz, if you don'
 
 >>Q5: Which commands retreives the namespaces of a cluster<<
 === kubectl get namespaces
+
+>>Q6: The control plane runs the services that manages the cluster <<
+(*) Correct
+() Incorrect
+
+>>Q7: The Master Node can be deployed multiple times per installation <<
+(*) Correct
+() Incorrect
+
+>>Q8: Persistent volumes are scoped at the __ level <<
+[ ] Namespace
+[ ] Pod
+[ ] Container
+[*] Cluster
+
+>>Q9: Worker Nodes run the following components  <<
+[*] Kubeproxy
+[*] Kubelet
+[*] Pods
+[*] Services
+[ ] Kube-API
+
+>>Q10: What is the minimum manageable unit in the K8S Object model  <<
+() Service
+() Deployment
+(*) Pod
+() Replicaset
+() Master Node
