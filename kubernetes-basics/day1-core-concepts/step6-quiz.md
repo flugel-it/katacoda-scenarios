@@ -47,7 +47,7 @@ Before moving forwards, let's check some basic concepts with a quiz, if you don'
 [*] Services
 [ ] Kube-API
 
->>Q10: What is the minimum manageable unit in the K8S Object model  <<
+>>Q10: What is the minimum manageable unit in the K8S Object model ?<<
 () Service
 () Deployment
 (*) Pod
