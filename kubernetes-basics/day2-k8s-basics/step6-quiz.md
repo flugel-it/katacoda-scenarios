@@ -2,54 +2,59 @@
 
 Before moving forwards, let's check some basic concepts with a quiz, if you don't get the correct answers on the first try it's fine, just go back to the appropriate lesson and review the topic.
 
-## Architecture of the Master and Worker node
->>Q1: Which of these are key components of the Master Node <<
-[ ] Pods
-[*] Kube Controller Manager
-[*] Kube API
-[ ] Namespaces
-[*] Etcd
+## Kubectl, pods, services, namespaces, deployments
+>>Q1: Select the most used __commands__ when executing __kubectl command__ <<
+[] restore
+[*] get
+[] cluster
+[*] create
+[*] apply
 
 
->>Q2: Etcd is a Structured Database that holds the metadata of the Cluster<<
+
+>>Q2: Select the most used __commands__ when executing __kubectl command__<<
+[*] delete
+[*] explain
+[] pod
+[] call
+[*] expose
+[*] edit
+
+
+>>Q3: Resources in the cluster can be edited from command line<<
+(*) Correct
+() Incorrect
+
+>>Q4: Stateless Pods will keep their name even when restarted <<
 () Correct
 (*) Incorrect
 
->>Q2: Etcd is a Key Value store used as Kubernetes' backing store for all cluster data<<
+>>Q5: Statefull Pods will keep their name even when restarted <<
 (*) Correct
 () Incorrect
 
->>Q4: A Pod is basically a container, no more than one container per pod is allowed<<
-() Correct
-(*) Incorrect
-
->>Q5: Which commands retreives the namespaces of a cluster<<
-=== kubectl get namespaces
-
->>Q6: The control plane runs the services that manages the cluster <<
+>>Q6: Deleting a namespace will delete all the resources included in it <<
 (*) Correct
 () Incorrect
 
->>Q7: The Master Node can be deployed multiple times per installation <<
-(*) Correct
-() Incorrect
+>>Q7: Which command shows the fields of a resource including an explanation? <<
+=~= kubectl explain
 
->>Q8: Persistent volumes are scoped at the __ level <<
-[ ] Namespace
-[ ] Pod
-[ ] Container
-[*] Cluster
+>>Q8: Which are 4 service types available when exposing a service? <<
+[*] ClusterIP
+[] DNS
+[] ExternalCluster
+[*] NodePort
+[] Proxy
+[*] LoadBalancer
+[*] ExternalName
 
->>Q9: Worker Nodes run the following components  <<
-[*] Kubeproxy
-[*] Kubelet
-[*] Pods
-[*] Services
-[ ] Kube-API
+>>Q9: Enter the command required to scale the my-deployment deployment to two replicas  <<
+=== kubectl scale deployment my-deployment --replicas=2
 
->>Q10: What is the minimum manageable unit in the K8S Object model ?<<
-() Service
-() Deployment
-(*) Pod
-() Replicaset
-() Master Node
+>>Q10: If no namespace is declared when creatin resources resources will be ?<<
+() Failed when trying to be created
+() Deployed in a new random namespace
+() Created without a namespace assigned in pending state
+(*) Deployed in the default namespace
+() Deployed in the kube-system namespace
