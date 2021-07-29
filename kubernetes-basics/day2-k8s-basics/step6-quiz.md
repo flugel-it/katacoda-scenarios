@@ -52,7 +52,7 @@ Before moving forwards, let's check some basic concepts with a quiz, if you don'
 >>Q9: Enter the command required to scale the my-deployment deployment to two replicas  <<
 === kubectl scale deployment my-deployment --replicas=2
 
->>Q10: If no namespace is declared when creatin resources resources will be ?<<
+>>Q10: If no namespace is declared when creating resources resources will be ?<<
 () Failed when trying to be created
 () Deployed in a new random namespace
 () Created without a namespace assigned in pending state

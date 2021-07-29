@@ -8,8 +8,10 @@ There are many other types of resources that can be added to Kubernetes besides 
 
 With these steps you have learned:
 
+- &#x2714; basic **kubectl** commands,
+- &#x2714; what **replicasets** are,
+- &#x2714; what **namespaces** are,
+- &#x2714; what **services** are,
+- &#x2714; what type of **services** can be used to expose an app,
 - &#x2714; how to **Deploy** an application,
 - &#x2714; how to **Scale** an application,
-- &#x2714; how to load balance an application with a **Service** for multiple **Pods** of an application,
-- &#x2714; how **Resilience** maintains the declared state even with failures,
-- &#x2714; how to **Roll out** new versions of an application.
