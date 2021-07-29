@@ -1,0 +1,60 @@
+{
+  "title": "Flugel IT - Kubernetes Advanced",
+  "description": "Advanced Kubernetes topics.",
+  "difficulty":	"Medium",
+  "time":	"1 day",
+  "details": {
+    "steps": [
+      {
+        "title": "Kubectl",
+        "text": "step1-kubectl.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Pods",
+        "text": "step2-pods.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Service",
+        "text": "step3-service.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Deployments",
+        "text": "step4-deployments.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Namespaces",
+        "text": "step5-namespaces.md",
+        "code": "clear.sh"
+      },
+      {
+        "title": "Quiz",
+        "text": "step6-quiz.md",
+        "code": "clear.sh"
+      }
+    ],
+    "intro": {
+      "text": "intro.md",
+      "code": "env-init.sh"
+    },
+    "finish": {
+      "text": "finish.md"
+    },
+    "assets": {
+      "host01": [
+        {"file": "*.yaml", "target": "/root"},
+        {"file": "token.sh", "target": "/usr/local/bin", "chmod": "+x"}
+      ]
+    }
+  },
+  "environment": {
+    "uilayout": "terminal",
+    "uieditorpath": "/root/example"
+  },
+  "backend": {
+    "imageid": "kubernetes-cluster-running:1.18"
+  }
+}

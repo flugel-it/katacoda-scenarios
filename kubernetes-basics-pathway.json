@@ -12,6 +12,11 @@
         "course_id": "day2-K8s-basics",
         "title": "[Day 2] - Kubernetes Basics",
         "description": "Kubectl, Pods, Replicasets, Deployments, Namespaces, Services."
+      },
+      {
+        "course_id": "day3-K8s-advanced",
+        "title": "[Day 3] - Kubernetes Advanced",
+        "description": "Imperative vs Declarative, Labels, Selectors, Taints, Tolerations, Node Selector, Node Affinity, Daemonset, Requests and Limits, Rolling updates, Rollbacks, Multi container pods, InitContainers."
       }
     ]
   }
