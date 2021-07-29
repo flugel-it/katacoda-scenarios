@@ -2,42 +2,30 @@
 
 ![Kubernetes](./assets/kubernetes.png "Kubernetes")
 
-Welcome to the Commands and Structures modules!
+Welcome to the Advanced topics module!
 
-This module takes you through a the most used tool to interact with Kubernetes _kubectl_, you will also learn about the structures used in Kubernetes to deploy an application or service, manage and scale it.
+This module takes you through a advanced topics that are vital when defining the structure of an application or service and are commonly used in production ready installations.
 
-In this module you will learn what is:
+In this module you will learn about:
 
-## Kubectl command
-- Apply
-- Delete
-- Scale
-- Create Deployments
-- Create Pods
-
-## Pods
-- What is a Pod?
-- Practice Test - Pods
-
-## ReplicaSets
-- What are ReplicaSets?
-- Practice Test - ReplicaSets
-
-## Deployments
-- What are Deployments?
-- Practice Test - Deployments
-
-# Namespaces
-- What are Namespaces?
-- Practice Test - Namespaces
-
-## Services
-- Cluster IP
-- LoadBalancer
-- Practice Test - Services
+# Kubectl advanced:
+- Other kubectl tricks
+- Imperative vs Declarative
 
 
-By going through this module you will become familiarized with a lot of basic concepts that you will use in your day to day, let's go!
+# Theory and hands on on:
+- Labels and Selectors
+- Taints and Tolerations
+- Node selectors
+- Node Affinity
+- Daemon Sets
+- Request and Limits
+- Rolling Updates and Rollbacks
+- Multi Containers PODS
+- InitContainers
+
+
+By going through this module you will become familiarized with a lot of advanced concepts that you will use in your day to day, let's go!
 
 ------
 <p style="text-align: center; padding: 1em; margin: 3em; margin-left: 10em; margin-right: 10em; border-; 1px; border-color: olive;  border-radius: 12px; border-style:outset">
