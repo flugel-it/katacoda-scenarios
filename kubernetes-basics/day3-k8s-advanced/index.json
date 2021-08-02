@@ -6,13 +6,13 @@
   "details": {
     "steps": [
       {
-        "title": "Kubectl",
+        "title": "Kubectl advanced commands",
         "text": "step1-kubectl.md",
         "code": "clear.sh"
       },
       {
-        "title": "Pods",
-        "text": "step2-pods.md",
+        "title": "Imperative & Declarative",
+        "text": "step2-imperative-declarative.md",
         "code": "clear.sh"
       },
       {
