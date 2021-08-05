@@ -16,6 +16,11 @@
         "code": "clear.sh"
       },
       {
+        "title": "Imperative Management of Objects",
+        "text": "step2-1-imperative.md",
+        "code": "clear.sh"
+      },
+      {
         "title": "Service",
         "text": "step3-service.md",
         "code": "clear.sh"
