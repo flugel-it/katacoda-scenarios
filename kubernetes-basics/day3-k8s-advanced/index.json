@@ -21,13 +21,13 @@
         "code": "clear.sh"
       },
       {
-        "title": "Service",
-        "text": "step3-service.md",
+        "title": "Labels & Selectors",
+        "text": "step3-labels-selectors.md",
         "code": "clear.sh"
       },
       {
-        "title": "Deployments",
-        "text": "step4-deployments.md",
+        "title": "Taints and Tolerations",
+        "text": "step4-taints-tolerations.md",
         "code": "clear.sh"
       },
       {
