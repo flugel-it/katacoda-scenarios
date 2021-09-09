@@ -36,6 +36,11 @@
         "code": "clear.sh"
       },
       {
+        "title": "Daemon Sets",
+        "text": "step6-daemon-sets.md",
+        "code": "clear.sh"
+      },
+      {
         "title": "Quiz",
         "text": "step6-quiz.md",
         "code": "clear.sh"
