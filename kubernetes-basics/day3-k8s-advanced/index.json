@@ -41,6 +41,11 @@
         "code": "clear.sh"
       },
       {
+        "title": "Requests and Limits",
+        "text": "step7-requests-limits.md",
+        "code": "clear.sh"
+      },
+      {
         "title": "Quiz",
         "text": "step6-quiz.md",
         "code": "clear.sh"
