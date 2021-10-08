@@ -6,9 +6,9 @@ Kubernetes objects can quickly be created, updated, and deleted directly using i
 
 The kubectl tool supports three kinds of object management:
 
-Imperative commands
-Imperative object configuration
-Declarative object configuration
+* Imperative commands
+* Imperative object configuration
+* Declarative object configuration
 
 See [Kubernetes Object Management](https://kubernetes.io/docs/concepts/overview/working-with-objects/object-management/) for a discussion of the advantages and disadvantage of each kind of object management.
 
