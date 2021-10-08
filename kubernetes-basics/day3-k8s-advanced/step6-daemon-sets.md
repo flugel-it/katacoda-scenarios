@@ -1,4 +1,4 @@
-# Node Selectors
+# DaemonSet
 
 A *Daemonset* guarantees that a copy of a Pod is running in the defined node set, this could be all the nodes or a group.
 As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.

@@ -1,129 +1,47 @@
-# Node Selectors
+# Requests and Limits
 
-A *Daemonset* guarantees that a copy of a Pod is running in the defined node set, this could be all the nodes or a group.
-As nodes are added to the cluster, Pods are added to them. As nodes are removed from the cluster, those Pods are garbage collected. Deleting a DaemonSet will clean up the Pods it created.
+When you specify a Pod, you can optionally specify how much of each resource a Container needs. The most common resources to specify are CPU and memory (RAM); there are others.
 
-Some typical uses of a DaemonSet are:
+When you specify the resource *request* for Containers in a Pod, the scheduler uses this information to decide which node to place the Pod on. 
 
-* running a cluster storage daemon on every node
-* running a logs collection daemon on every node
-* running a node monitoring daemon on every node
+When you specify a resource *limit* for a Container, the kubelet enforces those limits so that the running container is not allowed to use more of that resource than the *limit* you set. 
 
+The kubelet also reserves at least the *request* amount of that system resource specifically for that container to use.
 
-## Create a DaemonSet
+## Requests vs Limits
 
-The daemonset.yaml file below describes a DaemonSet that runs the `fluentd-elasticsearch` Docker image:
+If the node where a Pod is running has enough of a resource available, it's possible (and allowed) for a container to use more resource than its *request* for that resource specifies. However, a container is not allowed to use more than its resource *limit*.
 
-````
-apiVersion: apps/v1
-kind: DaemonSet
-metadata:
-  name: fluentd-elasticsearch
-  namespace: kube-system
-  labels:
-    k8s-app: fluentd-logging
-spec:
-  selector:
-    matchLabels:
-      name: fluentd-elasticsearch
-  template:
-    metadata:
-      labels:
-        name: fluentd-elasticsearch
-    spec:
-      tolerations:
-      # this toleration is to have the daemonset runnable on master nodes
-      # remove it if your masters can't run pods
-      - key: node-role.kubernetes.io/master
-        operator: Exists
-        effect: NoSchedule
-      containers:
-      - name: fluentd-elasticsearch
-        image: quay.io/fluentd_elasticsearch/fluentd:v2.5.2
-        resources:
-          limits:
-            memory: 200Mi
-          requests:
-            cpu: 100m
-            memory: 200Mi
-        volumeMounts:
-        - name: varlog
-          mountPath: /var/log
-        - name: varlibdockercontainers
-          mountPath: /var/lib/docker/containers
-          readOnly: true
-      terminationGracePeriodSeconds: 30
-      volumes:
-      - name: varlog
-        hostPath:
-          path: /var/log
-      - name: varlibdockercontainers
-        hostPath:
-          path: /var/lib/docker/containers
-````
+## Resource Types
 
-Run `kubectl apply -f https://github.com/flugel-it/katacoda-scenarios/kubernetes-basics/day3-k8s-advanced/assets/daemonset.yaml`, to create a DaemonSet.
+CPU and memory are each a resource type. CPU represents compute processing, Memory is specified in units of bytes.
 
+## Huge Pages
 
-`kubectl apply -f https://github.com/flugel-it/katacoda-scenarios/kubernetes-basics/day3-k8s-advanced/assets/daemonset.yaml` {{execute}}
+If you're using Kubernetes v1.14 or newer, you can specify huge page resources. Huge pages are a Linux-specific feature where the node kernel allocates blocks of memory that are much larger than the default page size.
 
+For example, on a system where the default page size is 4KiB, you could specify a limit, hugepages-2Mi: 80Mi. If the container tries allocating over 40 2MiB huge pages (a total of 80 MiB), that allocation fails.
 
-## Required Fields
+CPU and memory are collectively referred to as compute resources, or resources.
 
-* apiVersion
-* kind
-* metadata
-* .spec
-* .spec.template
-  The .spec.template is a pod template. It has exactly the same schema as a Pod, except it is nested and does not have an apiVersion or kind.
+## Resource Types
 
-* .spec.selector
-  The .spec.selector field is a pod selector. It works the same as the .spec.selector of a Job.
+Each Container of a Pod can specify one or more of the following:
 
-## How Daemon Pods are scheduled
+* spec.containers[].resources.limits.cpu
+* spec.containers[].resources.limits.memory
+* spec.containers[].resources.limits.hugepages-<size>
+* spec.containers[].resources.requests.cpu
+* spec.containers[].resources.requests.memory
+* spec.containers[].resources.requests.hugepages-<size>
 
-DaemonSet pods are created and scheduled by the DaemonSet controller instead. That introduces the following issues:
+# Resource units in Kubernetes
 
-* Inconsistent Pod behavior: Normal Pods waiting to be scheduled are created and in `Pending` state, but DaemonSet pods are not created in `Pending` state. This is confusing to the user.
-* Pod preemption is handled by default scheduler. When preemption is enabled, the DaemonSet controller will make scheduling decisions without considering pod priority and preemption.
+## Meaning of CPU 
 
-`ScheduleDaemonSetPods` allows you to schedule DaemonSets using the default scheduler instead of the DaemonSet controller, by adding the `NodeAffinity` term to the DaemonSet pods, instead of the `.spec.nodeName` term.
+Limits and requests for CPU resources are measured in cpu units. One cpu, in Kubernetes, is equivalent to 1 vCPU/Core for cloud providers and 1 hyperthread on bare-metal Intel processors.
 
-### Node affinity example
+Fractional requests are allowed. A Container with `spec.containers[].resources.requests.cpu` of `0.5` is guaranteed half as much CPU as one that asks for 1 CPU. The expression `0.1` is equivalent to the expression `100m`, which can be read as "one hundred millicpu". Some people say "one hundred millicores", and this is understood to mean the same thing. A request with a decimal point, like 0.1, is converted to 100m by the API, and precision finer than 1m is not allowed. For this reason, the form 100m might be preferred.
 
-````
-nodeAffinity:
-  requiredDuringSchedulingIgnoredDuringExecution:
-    nodeSelectorTerms:
-    - matchFields:
-      - key: metadata.name
-        operator: In
-        values:
-        - target-host-name
-````
+CPU is always requested as an absolute quantity, never as a relative quantity; 0.1 is the same amount of CPU on a single-core, dual-core, or 48-core machine.
 
-### Taints and Tolerations
-
-Daemon Pods respect taints and tolerations, in addition, the following tolerations are added to DaemonSet Pods automatically according to the related features.
-
-
-| Toleration Key                         | Effect     | Version | Description                                                                                          |   |
-|----------------------------------------|------------|---------|------------------------------------------------------------------------------------------------------|---|
-| node.kubernetes.io/not-ready           | NoExecute  | 1.13+   | DaemonSet pods will not be evicted when there are node problems such as a network partition.         |   |
-| node.kubernetes.io/unreachable         | NoExecute  | 1.13+   | DaemonSet pods will not be evicted when there are node problems such as a network partition.         |   |
-| node.kubernetes.io/disk-pressure       | NoSchedule | 1.8+    | DaemonSet pods tolerate disk-pressure attributes by default scheduler.                               |   |
-| node.kubernetes.io/memory-pressure     | NoSchedule | 1.8+    | DaemonSet pods tolerate memory-pressure attributes by default scheduler.                             |   |
-| node.kubernetes.io/unschedulable       | NoSchedule | 1.12+   | DaemonSet pods tolerate unschedulable attributes by default scheduler.                               |   |
-| node.kubernetes.io/network-unavailable | NoSchedule | 1.12+   | DaemonSet pods, who uses host network, tolerate network-unavailable attributes by default scheduler. |   |
-
-
-## Communicating with Daemon Pods
-
-Some possible patterns for communicating with Pods in a DaemonSet are:
-
-* Push: Pods in the DaemonSet are configured to send updates to another service, such as a stats database. They do not have clients.
-* NodeIP and Known Port: Pods in the DaemonSet can use a hostPort, so that the pods are reachable via the node  IPs. Clients know the list of node IPs somehow, and know the port by convention.
-* DNS: Create a headless service with the same pod selector, and then discover DaemonSets using the endpoints resource or retrieve multiple A records from DNS.
-* Service: Create a service with the same Pod selector, and use the service to reach a daemon on a random node. (No way to reach specific node.)
-
-Additional documentation about daemonsets [here](https://kubernetes.io/docs/concepts/workloads/controllers/daemonset/)
